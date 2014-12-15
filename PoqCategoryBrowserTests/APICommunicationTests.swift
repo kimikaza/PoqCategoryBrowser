@@ -10,6 +10,8 @@ import UIKit
 import XCTest
 
 class APICommunicationTests: XCTestCase {
+    
+    let apiCommunicator: APICommunicator = APICommunicator()
 
     override func setUp() {
         super.setUp()
@@ -21,9 +23,16 @@ class APICommunicationTests: XCTestCase {
         super.tearDown()
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+    func testGettingCategoriesByAppId() {
+        let readyExpectation = expectationWithDescription("ready")
+ 
+        apiCommunicator.getCategoriesFor(75, success: { (responseObject) -> Void in
+            readyExpectation.fulfill()
+        })
+        
+        waitForExpectationsWithTimeout(15, handler: { (error) -> Void in
+            XCTAssertNil(error, "Should be no errors in getting cateogries by app id")
+        })
     }
 
     func testPerformanceExample() {

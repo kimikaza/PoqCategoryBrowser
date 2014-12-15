@@ -8,6 +8,10 @@
 
 import UIKit
 
-class APIManagerDelegate: NSObject {
+protocol APIManagerDelegate{
+    
+    func fetchingCategoriesFailedWith(error: NSError)
+    
+    func fetchingCategoriesSuccededWith(result: [PoqCategoryModel]?)
    
 }

@@ -8,6 +8,16 @@
 
 import UIKit
 
-class FakeAPIManagerDelegate: NSObject {
+class FakeAPIManagerDelegate: APIManagerDelegate {
+    
+    func fetchingCategoriesFailedWith(error: NSError)
+    {
+        //nothing
+    }
+    
+    func fetchingCategoriesSuccededWith(result: [PoqCategoryModel]?)
+    {
+        //nothing
+    }
    
 }
